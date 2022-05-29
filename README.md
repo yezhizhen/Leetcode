@@ -1,2 +1,2 @@
 # Leetcode
-Leetcode this year.
+Leetcode for 2022.
