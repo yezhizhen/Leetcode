@@ -18,16 +18,21 @@ public:
         
     }
     
-    //true if the node is monitored
-    bool post_order(TreeNode* root){
-        if(not root) return true;
-        bool l = post_order(root->left), r = post_order(root->right);
-        //both child monitored. don't put camera at root.
-        if(l and r)
-            return false;
-        else{
+    //0 if not covered
+    //1 if covered by child but no monitor
+    //2 if has a monitor right on root
+    int post_order(TreeNode* root){
+        if(not root) return 1;
+        int l = post_order(root->left), r = post_order(root->right);
+        //have to put a monitor at root
+        if(l == 0 or r == 0){
             ans++;
-            return true;
+            return 2;
         }
+        //current node already covered
+        else if(l == 2 or r == 2)
+            return 1;
+        else //not covered. leave it to parent
+            return 0;
     }
 };
