@@ -1,6 +1,6 @@
 //https://leetcode.com/problems/prefix-and-suffix-search/
 
-//can use a Trie to reduce space. Right now each string occupies 1 + 2 + 3 + ... + L = O(L^2) space
+//can use a Trie to reduce space. Right now each string in the key occupies 1 + 2 + 3 + ... + L = O(L^2) space
 
 class WordFilter {
     unordered_map<string,vector<int>> prefix_to_inds; //each vector in increasing order
